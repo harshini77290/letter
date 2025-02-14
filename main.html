@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Surprise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .hidden {
+            display: none;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.8);
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .yes { background-color: red; color: white; }
+        .no { background-color: gray; color: white; }
+        
+        #passwordScreen, #valentineScreen {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #passwordScreen {
+            background-image: url('1.jpg');
+        }
+        #valentineScreen {
+            background-image: url('val.jpg');
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="passwordScreen">
+        <div class="container">
+            <h2>Enter Password</h2>
+            <p>Hint: Our special date ❤️</p>
+            <input type="password" id="passwordInput">
+            <button onclick="checkPassword()">Submit</button>
+            <p id="errorMessage" style="color: red;"></p>
+        </div>
+    </div>
+    
+    <div id="valentineScreen">
+        <div class="container">
+            <h2>Will you be my Valentine? 💖</h2>
+            <button class="yes" onclick="goToLoveLetter()">Yes</button>
+            <button class="no" onclick="closeWebsite()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const correctPassword = "2511"; // Set your own password
+            const input = document.getElementById("passwordInput").value;
+            if (input === correctPassword) {
+                document.getElementById("passwordScreen").style.display = "none";
+                document.getElementById("valentineScreen").style.display = "flex";
+            } else {
+                document.getElementById("errorMessage").innerText = "Incorrect Password! Try Again.";
+            }
+        }
+
+        function goToLoveLetter() {
+            window.location.href = "love.html";
+        }
+
+        function closeWebsite() {
+            document.body.innerHTML = "<h1 style='color:black;'>Maybe next time... 💔</h1>";
+            setTimeout(() => window.close(), 2000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Love Letter 💌</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('loveletter.webp'); /* Add your love letter background */
+            background-size: cover;
+            background-position: center;
+            color: black;
+            text-align: center;
+            overflow: hidden;
+        }
+        h2 {
+            font-size: 24px;
+            color: black; /* Ensuring visibility */
+            margin-bottom: 10px;
+        }
+        .letter {
+            background: rgba(255, 255, 255, 0.9);
+            color: black;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .heart {
+            color: red;
+            font-size: 24px;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .falling-heart {
+            position: absolute;
+            top: -50px;
+            font-size: 24px;
+            color: red;
+            animation: fall 3s linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-50px); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h2>To My Special One 💌</h2>
+    <button class="btn" onclick="showLetter()">Read</button>
+    <div class="letter" id="letterContent">
+        <p>My love,</p>
+        <p>From the moment we met, my heart knew you were the one. I stil remember the day we confessed each other. That's where the forever after started. I have no words to express my feelings for u, you are my everything yaar...I might be rude sometimes I might fight I might make you laugh make you angry make you cry I might fight with you every single time I might be the worst person sometimes but at the end of the day It's you momo ! I Love You so so much that I die in fear of loosing you everytime we fight, but the best part of our relationship is we stayed,we laughed,we cried,we yelled at each other,we fought but we "stayed" which matters the most. I might not mention this anytime but momo Thanks! for coming into my life and making it even more beautiful for me with just your presence. We both have issues with ourselves,sometimes you might not like me or my decisions and sometimes I might not like in you but I think we should learn to stay calm and think about each other's decisions and perspectives to make things work. Let's hope and try our level best to make this till eternity, I want you to be my last 7 minutes. I respect you in all terms the way you shower love , the way you care , the way you apologise sometimes . Yaar I LOVE YOU idiot , I hope I made this day special for you.  I wish you had a heartful smile while reading this whole goddamm thing. Finally, Mera cuuttuuuu I wish you all the success and reach many heigths. I believe in destiny and you are my Destiny. I feel like never stop typing this but yeah I Love You ummmaaahhhhhhhh !  </p>
+        <p class="heart">❤️❤️❤️</p>
+        <button class="btn" onclick="goBack()">Back</button>
+    </div>
+    
+    <script>
+        function showLetter() {
+            document.getElementById("letterContent").style.display = "block";
+            startHeartFall();
+        }
+
+        function goBack() {
+            window.location.href = "main.html";
+        }
+
+        function startHeartFall() {
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.classList.add("falling-heart");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+    </script>
+</body>
+</html>
